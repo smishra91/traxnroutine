@@ -1,0 +1,20 @@
+# Use the official OpenJDK 17 image as the base image
+FROM openjdk:17-jdk-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Download the dependencies before copying the project files
+RUN ./gradlew build -x test
+
+# Copy the project files to the working directory
+COPY . /app
+
+# Build the project
+RUN ./gradlew build -x test
+
+# Expose the port the application runs on
+EXPOSE 8080
+
+# Define the command to run the application
+CMD ["java", "-jar", "/app/build/libs/transaction-routine.jar"]

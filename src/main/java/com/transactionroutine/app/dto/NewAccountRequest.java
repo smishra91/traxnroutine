@@ -1,0 +1,12 @@
+package com.transactionroutine.app.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class NewAccountRequest {
+    private String documentNumber;
+}
